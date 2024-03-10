@@ -46,7 +46,7 @@ $$\sum\limits^{\log _b n-1} _{i=0} a^i·f(\frac{n}{b^i})=
 
 $$\sum\limits^{\log _b n-1} _{i=0} a^i·f(\frac{n}{b^i})=\sum\limits^{\log _b n-1} _{i=0} a^i·O((\frac{n}{b^i})^{\log _b a−ϵ})=\sum\limits^{\log _b n-1} _{i=0} O(n^{\log _b a−ϵ}·(b^ϵ)^i)= O(n^{\log _b a−ϵ})·O(\frac{n^ϵ − 1}{b^ϵ − 1})= O(n^{\log _b a−ϵ}) · O(n^ϵ)= O(n^{\log _ba})$$
 
-> > 注：第一步还是直接带入，第二步则是因为 $(\frac{1}{b^i})^{\log _b a−ϵ}=\frac{1}{b^{i (\log _b a−ϵ)}}=\frac{1}{b^{\log _b a^i−iϵ}}=\frac{b^iϵ}{b^{\log _b a^i}}=\frac{b^iϵ}{a^i}$ ，将外面的 $a^i$ 乘入则为 $b^{iϵ}=(b^ϵ)^i$ ，第三步则是利用渐进性关系乘法法则，将其分为两个项，便于后续将第四步中的 $1$ 去掉
+> > 注：第一步还是直接带入，第二步则是因为 $(\frac{1}{b^i})^{\log _b a−ϵ}=\frac{1}{b^{i (\log _b a−ϵ)}}=\frac{1}{b^{\log _b a^i−iϵ}}=\frac{b^{iϵ}}{b^{\log _b a^i}}=\frac{b^{iϵ}}{a^i}$ ，将外面的 $a^i$ 乘入则为 $b^{iϵ}=(b^ϵ)^i$ ，第三步则是利用渐进性关系乘法法则，将其分为两个项，便于后续将第四步中的 $1$ 去掉
 > >
 > > 则有 $O(n^{\log _b a−ϵ}·(b^ϵ)^i)=O(n^{\log _b a−ϵ})·O((b^ϵ)^i))$ ，前者不含 $i$ 可在求和时提出，此时对后一项求和，也就是等比数列求和即可，而由于 $\frac{1}{b^ϵ-1}$ 为常数，所以第四步可以把其和 $1$ 忽略，第五步是利用$O$ 的性质， $O(f(x))·O(h(x))=O(f(x)·h(x))$ ，证明见下
 > > > 证明:假设 $k(x)=F(x)·H(x)$ ，其中 $F(x)=O(f(x)), H(x)=O(h(x))$ 由定义有 $∃n_0, c_1,c_2 > 0 ,当 n > _n0 时, F(x) ≤ c_1f(n),H(x) ≤ c_2h(x)$ ，那么 $k(n)=F(x)·H(x)≤ c_1c_2 f(x)·h(x)$ , 则 $k(x)=O(f(x)·h(x))$ ，则可证。
