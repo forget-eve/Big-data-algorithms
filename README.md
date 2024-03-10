@@ -31,14 +31,14 @@ $$T(n)=a(aT(\frac{n}{b^2})+f(\frac{n}{b}))+f(n)=a^2T(\frac{n}{b^2})+af(\frac{n}{
 
 $$T(n)= a^{\log _b n}·T(1) +\sum\limits^{\log _b n-1} _{i=0} a^i·f(\frac{n}{b^i})=Θ(n^{\log _b a}) + \sum\limits^{\log _b n-1} _{i=0} a^i·f(\frac{n}{b^i})$$
 
-> > 注：最后一步中由 $a^{\log _b n}·T(1)$ 变为 $Θ(n^{\log _b a})$ 是由于 $T(1)$ 为常量，假设为 $C$ ，则前式中可以变为 $C a^{\log _b n}$ ，现在来比较 $a^{\log _b n}$ 和 $n^{\log _b a}$ 的大小，由于这样比较不太直观那么同时取自然对数，则相当于比较 $\log _b n\ln a$ 和 $\log _b a\ln n$ 的大小关系，那么取函数 $f(n)=\log _b n\ln a -\log _b a\ln n$ ，那么此时对 $f(n)$ 求导数有 $f(n)'= \ln a \frac{1}{\ln b n} - \frac{\log _b a}{n}= \frac{\log _b a}{n}-\frac{\log _b a}{n}(换底公式)=0$ ，那么不难可知两个函数的增率是一致的，那么根据渐进性关系的 `几何意义` (此时就不用严格去推理了)就可以知道 **$a^{\log _b n}·T(1)=\theta (n^{\log _b a})$** ，作为结论可以记下。
+> > 注：最后一步中由 $a^{\log _b n}·T(1)$ 变为 $Θ(n^{\log _b a})$ 是由于 $T(1)$ 为常量，假设为 $C$ ，则前式中可以变为 $C a^{\log _b n}$ ，现在来比较 $a^{\log _b n}$ 和 $n^{\log _b a}$ 的大小，由于这样比较不太直观那么同时取自然对数，则相当于比较 $\log _b n\ln a$ 和 $\log _b a\ln n$ 的大小关系，那么取函数 $f(n)=\log _b n\ln a -\log _b a\ln n$ ，那么此时对 $f(n)$ 求导数有 $f(n)'= \ln a \frac{1}{\ln b n} - \frac{\log _b a}{n}= \frac{\log _b a}{n}-\frac{\log _b a}{n}(换底公式)=0$ ，那么不难可知两个函数的增率是一致的，那么根据渐进性关系的 `几何意义` (此时就不用严格去推理了)就可以知道 **$a^{\log _b n}·T(1)=Θ(n^{\log _b a})$** ，作为结论可以记下。
 
 > - (1) 当 $f(n) = \theta (n^{\log _b a})$ 时，
 
 $$\sum\limits^{\log _b n-1} _{i=0} a^i·f(\frac{n}{b^i})=
 \sum\limits^{\log _b n-1} _{i=0} a^i· \theta ((\frac{n}{b^i})^{\log _ba}) =\sum\limits^{\log _b n-1} _{i=0} \theta(n^{\log _ba}) = Θ(n^{\log _ba} \log_b n)$$
 
-> > 注：第一步是由于直接带入，第二步由于 $a^i$ 就是常数，则 $a^i· \theta ((\frac{n}{b^i})^{\log _ba})=\theta ((\frac{n}{b^i})^{\log _ba})$ ，而由于 $\frac{1}{b^{i \log _ba}}$ 也是常数，所以有 $\theta ((\frac{n}{b^i})^{\log _ba})=\theta(n^{\log _ba})$ ，最后一步对 $\theta(n^{\log _ba})$ 进行 $\log _b n$ 求和可以得到。
+> > 注：第一步是由于直接带入，第二步由于 $a^i$ 就是常数，则 $a^i· Θ((\frac{n}{b^i})^{\log _ba})=Θ((\frac{n}{b^i})^{\log _ba})$ ，而由于 $\frac{1}{b^{i \log _ba}}$ 也是常数，所以有 $Θ((\frac{n}{b^i})^{\log _ba})=Θ(n^{\log _ba})$ ，最后一步对 $Θ(n^{\log _ba})$ 进行 $\log _b n$ 求和可以得到。
 
 > - 因此， $T(n) = Θ(n^{\log _b a}\log n)$
 
