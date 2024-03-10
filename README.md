@@ -23,6 +23,7 @@
 - [x] 例如 $f(n) = 2n^2 + n + 4$ ，可以说 $f(n) = Θ(n^2)$ ；也可以说 $f(n) = O(n^2)$ 或 $f(n) = O(n^3)$ ，可以是 $f(n) = o(n^2 \log n)$ ；还可以说 $f(n) = Ω(n^2)$ 或 $f(n) = Ω(n \log n)$ 或 $f(n) = ω(n)$
 
 - **Example 1.1( `主定理的证明` )** . $T(n) = aT(\frac{n}{b}) + f(n)$ ，求 $T(n)$
+
 > - **Solution.**
 
 $$T(n)=a(aT(\frac{n}{b^2})+f(\frac{n}{b}))+f(n)=a^2T(\frac{n}{b^2})+af(\frac{n}{b})+f(n)=\dots(逐项展开)$$
