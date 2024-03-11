@@ -201,3 +201,30 @@ $$Pr[S < (1 - δ)µ]≤e^{λ(1-δ)µ}E[e^{-λS}] ≤e^{λ(1-δ)µ} · e^{-λµ+\
 > - 最后一步是由于 $\ln 2$ 为常数可以省去。
 
 - [x] 可以看到，两种证明方式最终获得结果在形式上有细微差异，但都可以写为式 $(2)$ 的渐进形式。`Chernoff Bound` 表明 $S$ 落在该区间之外的概率是和区间大小呈负指数关系。如果我们考虑的是 $\lbrace X_i\rbrace$ 的均值而不是它们之和时，使用 `Chernoff Bound` 会在 $e$ 的负指数上引入随机变量个数 $n$ ，这意味着我们估计的精度是和采样个数呈负指数关系，这个结论远强于 `Markov’s Inequality` 和 `Chebyshev’s Inequality` (可以试着用这两个不等式分析 $S$ 或均值并进行比对)
+
+> - 对比如下
+> > -  `Markov’s Inequality` 分析如下：
+
+$$Pr[|S − µ| ≤ δµ]=1 - Pr[|S − µ| \geq δµ] \geq 1- \frac{E[|S- µ|]}{δµ}$$
+
+> > > - 上式直接利用 `Markov’s Inequality` ，接下来有
+
+$$E[|S − µ|]=E[|\sum\limits^n_{i=1} X_i-µ|]=E[|\sum\limits^n_{i=1} (X_i-\frac{µ}{n})|] \leq E[\sum\limits^n_{i=1} |X_i-\frac{µ}{n}|]$$
+
+> > > - 由于 $X_i$ 独立，那么有
+
+$$E[|S − µ|] \leq \sum\limits^n_{i=1} E[|X_i-\frac{µ}{n}|] \leq n$$
+
+> > > - 这是由于 $0 \leq X_i \leq 1$ 和 $0 \leq \frac{µ}{n} \leq 1$ 所决定的 $0 \leq E[|X_i-\frac{µ}{n}|] \leq 1$ 。
+
+$$Pr[|S − µ| ≤ δµ] \geq 1 - \frac{n}{δµ}$$ 
+
+> > > - 由于 $δ \in (0,1),\frac{n}{µ} > 1$ ，那么有
+
+$$Pr[|S − µ| ≤ δµ] \geq 1 - \frac{n^2}{δ^2µ^2}$$
+
+> > -  `Chebyshev’s Inequality` 分析如下：
+
+$$Pr[|S − µ| ≤ δµ] = 1 - Pr[|S − µ| > δµ] >1 - \frac{µ}{δ^2µ^2} = 1 - \frac{1}{δ^2µ} \geq $1 - \frac{n}{δ^2µ^2}$
+
+> > > - 直接利用 `Chebyshev’s Inequality` 进行放缩，最后一步依然用 $\frac{n}{µ} \geq 1$ 进行缩放。
