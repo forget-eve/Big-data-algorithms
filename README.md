@@ -248,17 +248,17 @@ $$P(x ≥ t) ≤ ce^{−\frac{t^2}{2σ^2}}.$$
 
 - [x] **Definition 1.3.** 对次高斯随机变量, 可以定义范数 `[2]` :
 
-$$∥x∥_{sg} = \inf\limits_{s>0}E[e^{\frac{x^2}{s^2}} ≤ 2].$$
+$$||x|| _{sg} = \inf\limits _{s>0}E[e^{\frac{x^2}{s^2}} ≤ 2].$$
 
 > - **注: $||x||_{sg}$ 表示的是随机变量 $x$ 的某种类型的范数，通常称为 `Stein's-Gaussian` 范数。 $\inf\limits _{s>0}E[e^{\frac{x^2}{s^2}} ≤ 2]$ 表示对 $s$ 取所有大于零的值，然后求使得后面式子成立的 $s$ 的最小值，也可以写为**
 
-$$∥x∥_{sg} = \inf \lbrace s>0 : E[e^{\frac{x^2}{s^2}} ≤ 2] \rbrace$$
+$$||x||_{sg} = \inf \lbrace s>0 : E[e^{\frac{x^2}{s^2}} ≤ 2] \rbrace$$
 
 - [x] 在机器学习等任务中，时常需要计算数据的统计量, 如均值、最大值等。受限于巨量数据，难以精确计算。故而可以使用集中不等式来估计。
 
 - [x] **Theorem 1.4.** (次高斯分布的 `Hoeffding Bound` (霍夫丁界)). $x_1, x_2, \dots , x_n$ 是独立的次高斯随机变量. 均值皆为 $0$ . 则有
 
-$$P \left(|\sum\limits_{i=1}^n x_i| ≥ t \right) ≤ 2e^{− \frac{2t^2}{\sum\limits_{i=1}^n ∥xi∥^2_{sg}}}$$
+$$P \left(|\sum\limits_{i=1}^n x_i| ≥ t \right) ≤ 2e^{− \frac{2t^2}{\sum\limits_{i=1}^n ||x_i||^2_{sg}}}$$
 
 - 注： `Hoeffding Bound` 和 `Chernoff Bound` 的区别：
   > - `Hoeffding Bound` ：
@@ -281,7 +281,7 @@ $$P \left(|\sum\limits_{i=1}^n (x_i − EX_i)| ≥ t \right) ≤ 2e^{− \frac{2
 
 - [x] **Definition 1.7 (鞅).** 对于随机变量序列 $z_1, z_2, \dots ,$ 有
 
-$$E[z_j|z_1, z_2 \dots , z_{j-1}] = (/ ≤ / ≥)z_{j−1} , ∀j ∈ N.
+$$E[z_j|z_1, z_2 \dots , z_{j-1}] = (/ ≤ / ≥)z_{j−1} , ∀j ∈ N.$$
 
 > 则称之为一个鞅(martingale)(/下鞅 (submartingale)/上鞅 (supermartingale))序列.
 
